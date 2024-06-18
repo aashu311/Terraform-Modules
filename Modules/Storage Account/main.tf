@@ -6,3 +6,9 @@ resource "azurerm_storage_account" "masterStorageAcc" {
     account_replication_type = "LRS"
   
 }
+
+resource "azurerm_storage_container" "container" {
+  name                  = "storage-container"
+  storage_account_name  = azurerm_storage_account.masterStorageAcc.name
+  container_access_type = "private"
+}
